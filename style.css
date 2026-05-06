@@ -1,0 +1,1025 @@
+/* =========================
+   GLOBAL
+========================= */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', serif;
+    background: #f5f1e8;
+}
+
+/* =========================
+   🌿 INTRO (BEIGE DIARY)
+========================= */
+#intro {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    position: relative;
+    overflow: hidden;
+
+    /* BACKGROUND IMAGE */
+    background:
+        linear-gradient(rgba(245, 241, 232, 0.75),
+            rgba(231, 220, 203, 0.75)),
+        url('images/caught\ in\ the\ moment.jpg');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* soft paper texture overlay */
+#intro::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent 70%);
+}
+
+/* container */
+.intro-container {
+    position: relative;
+    z-index: 2;
+}
+
+/* profile image */
+.profile-pic {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    object-fit: contain;
+    border: 3px solid #a67c52;
+}
+
+/* text */
+h1 {
+    font-size: 26px;
+    color: #5c4432;
+    margin-top: 15px;
+}
+
+h1.title{
+    font-size: 48px;
+    color: #5a3e2b;
+    font-family: "Georgia", serif;
+    text-align: center;
+    letter-spacing: 2px;
+    padding-bottom: 70px;
+}
+
+h1 span {
+    font-size: 32px;
+    color: #8b5e3c;
+}
+
+/* button */
+button {
+    margin-top: 20px;
+    padding: 12px 28px;
+    border: 1px solid #8b5e3c;
+    border-radius: 25px;
+    background: transparent;
+    color: #5c4432;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    background: #8b5e3c;
+    color: white;
+}
+
+/* =========================
+   📖 DIARY NAVBAR (BEIGE MINIMAL)
+========================= */
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 45px;
+
+    /* soft paper beige */
+    background: rgba(231, 220, 203, 0.85);
+
+    /* glass effect */
+    backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid rgba(166, 124, 82, 0.25);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* LOGO */
+.logo {
+    font-size: 24px;
+    font-weight: 600;
+    color: #5a3e2b;
+    letter-spacing: 1px;
+}
+
+/* NAV CONTAINER */
+.nav-links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+/* LINKS */
+.nav-links a {
+    text-decoration: none;
+    color: #5c4432;
+    font-size: 15px;
+    font-weight: 500;
+
+    position: relative;
+    padding: 5px 2px;
+
+    transition: 0.3s ease;
+}
+
+/* HOVER */
+.nav-links a:hover {
+    color: #8b5e3c;
+}
+
+/* =========================
+   ACTIVE INDICATOR
+========================= */
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+
+    width: 0%;
+    height: 2px;
+
+    background: #8b5e3c;
+    border-radius: 2px;
+
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-links a.active {
+    color: #8b5e3c;
+    font-weight: 600;
+}
+
+/* =========================
+   CONTENT
+========================= */
+.content {
+    padding: 60px;
+    text-align: center;
+    color: #5c4432;
+}
+
+/* =========================
+   ✨ DIARY STICKERS (FINAL LOOK)
+========================= */
+
+.sticker {
+    position: absolute;
+    font-size: 24px;
+    color: rgba(92, 68, 50, 0.75);
+    /* stronger visibility */
+    pointer-events: none;
+    z-index: 1;
+
+    /* glow + shadow = more visible */
+    text-shadow:
+        0 2px 6px rgba(255, 255, 255, 0.7),
+        0 2px 10px rgba(0, 0, 0, 0.15);
+
+    animation: windFloat 8s ease-in-out infinite;
+}
+
+/* stronger wind motion */
+@keyframes windFloat {
+    0% {
+        transform: translate(0px, 0px) rotate(0deg) scale(1);
+        opacity: 0.7;
+    }
+
+    25% {
+        transform: translate(20px, -25px) rotate(10deg) scale(1.05);
+        opacity: 0.9;
+    }
+
+    50% {
+        transform: translate(-15px, -50px) rotate(-12deg) scale(1.1);
+        opacity: 1;
+    }
+
+    75% {
+        transform: translate(25px, -70px) rotate(8deg) scale(1.05);
+        opacity: 0.85;
+    }
+
+    100% {
+        transform: translate(-10px, -90px) rotate(-6deg) scale(1);
+        opacity: 0.6;
+    }
+}
+
+/* =========================
+   LAYERED POSITIONS (MORE NATURAL FEEL)
+========================= */
+
+/* TOP AREA */
+.s1 {
+    top: 5%;
+    left: 5%;
+    font-size: 28px;
+    animation-duration: 9s;
+}
+
+.s2 {
+    top: 8%;
+    right: 10%;
+    font-size: 20px;
+    animation-duration: 7s;
+}
+
+.s3 {
+    top: 12%;
+    left: 25%;
+    font-size: 26px;
+    animation-duration: 10s;
+}
+
+.s4 {
+    top: 18%;
+    right: 25%;
+    font-size: 22px;
+    animation-duration: 8s;
+}
+
+/* MID TOP */
+.s5 {
+    top: 28%;
+    left: 8%;
+    font-size: 24px;
+    animation-duration: 11s;
+}
+
+.s6 {
+    top: 32%;
+    right: 12%;
+    font-size: 18px;
+    animation-duration: 9s;
+}
+
+.s7 {
+    top: 38%;
+    left: 35%;
+    font-size: 28px;
+    animation-duration: 10s;
+}
+
+/* CENTER (around profile) */
+.s8 {
+    top: 45%;
+    left: 12%;
+    font-size: 22px;
+    animation-duration: 8s;
+}
+
+.s9 {
+    top: 50%;
+    right: 18%;
+    font-size: 26px;
+    animation-duration: 11s;
+}
+
+.s10 {
+    top: 52%;
+    left: 50%;
+    font-size: 20px;
+    animation-duration: 9s;
+}
+
+/* LOWER MID */
+.s11 {
+    bottom: 45%;
+    left: 20%;
+    font-size: 24px;
+    animation-duration: 10s;
+}
+
+.s12 {
+    bottom: 42%;
+    right: 20%;
+    font-size: 18px;
+    animation-duration: 8s;
+}
+
+.s13 {
+    bottom: 38%;
+    left: 45%;
+    font-size: 26px;
+    animation-duration: 11s;
+}
+
+/* BOTTOM AREA */
+.s14 {
+    bottom: 30%;
+    left: 10%;
+    font-size: 28px;
+    animation-duration: 9s;
+}
+
+.s15 {
+    bottom: 25%;
+    right: 10%;
+    font-size: 22px;
+    animation-duration: 10s;
+}
+
+.s16 {
+    bottom: 18%;
+    left: 30%;
+    font-size: 24px;
+    animation-duration: 8s;
+}
+
+.s17 {
+    bottom: 12%;
+    right: 30%;
+    font-size: 20px;
+    animation-duration: 11s;
+}
+
+/* EDGE FLOATERS */
+.s18 {
+    bottom: 5%;
+    left: 50%;
+    font-size: 26px;
+    animation-duration: 9s;
+}
+
+.s19 {
+    top: 60%;
+    left: 5%;
+    font-size: 22px;
+    animation-duration: 10s;
+}
+
+.s20 {
+    top: 70%;
+    right: 5%;
+    font-size: 28px;
+    animation-duration: 8s;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+.section {
+    min-height: 100vh;
+    padding: 100px 40px;
+    text-align: center;
+    color: #5c4432;
+}
+
+/* ABOUT INFO */
+.about-info {
+    margin: 30px 0;
+    color: #5c4432;
+}
+
+.about-text {
+    max-width: 650px;
+    /* controls width */
+    margin: 25px auto 40px;
+
+    font-size: 17px;
+    /* slightly bigger */
+    line-height: 1.9;
+
+    color: #5c4432;
+    text-align: center;
+}
+
+.map-link {
+    color: #8b5e3c;
+    text-decoration: none;
+}
+
+.map-link:hover {
+    text-decoration: underline;
+}
+
+/* GROUP */
+.about-group {
+    margin-top: 40px;
+}
+
+/* LABEL TITLE */
+.about-group h3 {
+    margin-bottom: 15px;
+    color: #5a3e2b;
+}
+
+/* ITEMS GRID (2x2 layout) */
+.about-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 columns */
+    gap: 18px;
+
+    justify-content: center;
+    max-width: 300px;
+    /* keeps it centered & not too wide */
+    margin: auto;
+}
+
+/* BOX STYLE */
+.item-box {
+    width: 120px;
+    padding: 15px;
+    background: #f3e9dc;
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    justify-self: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* ICON */
+.item-box img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+/* TEXT */
+.item-box span {
+    font-size: 13px;
+    color: #5c4432;
+    text-align: center;
+}
+
+/* HOVER */
+.item-box:hover {
+    transform: translateY(-8px);
+    background: #8b5e3c;
+}
+
+.item-box:hover span {
+    color: white;
+}
+
+/* =========================
+   MODAL
+========================= */
+/* BACKDROP */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 2000;
+}
+
+/* SMALL CENTERED CARD */
+.modal-card {
+    position: relative;
+
+    width: min(320px, 85vw);
+    /* 👈 key: NOT too wide */
+    padding: 22px;
+
+    background: #f5f1e8;
+    border-radius: 16px;
+
+    text-align: center;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+
+    animation: popIn 0.25s ease;
+}
+
+/* ICON */
+.modal-icon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+
+    margin-bottom: 10px;
+}
+
+/* TITLE */
+.modal-card h3 {
+    font-size: 18px;
+    color: #5a3e2b;
+    margin-bottom: 10px;
+}
+
+/* DESCRIPTION */
+.modal-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #5c4432;
+}
+
+/* CLOSE BUTTON */
+#closeModal {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+
+    font-size: 20px;
+    cursor: pointer;
+
+    color: #5a3e2b;
+}
+
+/* POP ANIMATION */
+@keyframes popIn {
+    from {
+        transform: scale(0.85);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* =========================
+   📸 SCRAPBOOK COLLAGE (TRUE CENTERED)
+========================= */
+
+.about-collage {
+    position: relative;
+    height: 260px;
+    margin-bottom: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+}
+
+/* CENTER ANCHOR (this is the secret) */
+.collage-inner {
+    position: relative;
+
+    width: 100%;
+    max-width: 600px;
+    height: 260px;
+
+    margin: 0 auto;
+}
+
+/* ALL IMAGES */
+.about-collage img {
+    position: absolute;
+
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+
+    border-radius: 15px;
+    border: 4px solid #f5f1e8;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+    transition: 0.35s ease;
+
+    transform-origin: center;
+}
+
+.about-collage img:hover {
+    transform: scale(1.15) rotate(0deg);
+    z-index: 999;
+}
+
+/* =========================
+   🎞️ DIARY STYLE POSITIONS
+   (now centered inside canvas)
+========================= */
+
+/* CENTER IS 50% — everything scatters around it */
+
+.c1 {
+    top: 10px;
+    left: 45%;
+    transform: translate(-120px, 0) rotate(-8deg);
+    z-index: 1;
+}
+
+.c2 {
+    top: 0px;
+    left: 50%;
+    transform: translate(-60px, 20px) rotate(6deg);
+    z-index: 3;
+}
+
+.c3 {
+    top: 80px;
+    left: 50%;
+    transform: translate(-140px, 0px) rotate(-4deg);
+    z-index: 2;
+}
+
+.c4 {
+    top: 40px;
+    left: 50%;
+    transform: translate(60px, 0px) rotate(8deg);
+    z-index: 2;
+}
+
+.c5 {
+    top: 100px;
+    left: 55%;
+    transform: translate(-20px, -10px) rotate(-6deg);
+    z-index: 1;
+}
+
+/* TEXT */
+.contact-text {
+    max-width: 600px;
+    margin: 15px auto 40px;
+    color: #5c4432;
+    line-height: 1.8;
+}
+
+/* CONTAINER */
+.contact-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* INFO CARD */
+.contact-card {
+    background: #f3e9dc;
+    padding: 25px;
+    border-radius: 15px;
+
+    width: 260px;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+
+    text-align: left;
+}
+
+.contact-card h3 {
+    margin-top: 10px;
+    color: #5a3e2b;
+    font-size: 16px;
+}
+
+.contact-card p {
+    font-size: 14px;
+    color: #5c4432;
+    margin-bottom: 10px;
+}
+
+/* FORM */
+.contact-form {
+    background: #f5f1e8;
+    padding: 25px;
+    border-radius: 15px;
+
+    width: 300px;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    border: 1px solid #d8c9b6;
+    border-radius: 10px;
+
+    font-family: inherit;
+    background: transparent;
+}
+
+.contact-form textarea {
+    height: 100px;
+    resize: none;
+}
+
+/* BUTTON */
+.contact-form button {
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #8b5e3c;
+    background: transparent;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    background: #8b5e3c;
+    color: white;
+}
+
+/* BACKDROP */
+.notif {
+    display: none;
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 3000;
+}
+
+/* CARD */
+.notif-card {
+    width: min(300px, 85vw);
+
+    background: #f5f1e8;
+    border-radius: 16px;
+
+    padding: 25px;
+    text-align: center;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+
+    animation: popIn 0.25s ease;
+    border: 1px solid rgba(139, 94, 60, 0.2);
+}
+
+/* ICON */
+.notif-icon {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+/* TITLE */
+.notif-card h3 {
+    color: #5a3e2b;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+/* TEXT */
+.notif-card p {
+    font-size: 14px;
+    color: #5c4432;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* BUTTON */
+.notif-card button {
+    padding: 8px 18px;
+    border-radius: 20px;
+
+    border: 1px solid #8b5e3c;
+    background: transparent;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.notif-card button:hover {
+    background: #8b5e3c;
+    color: white;
+}
+
+/* ANIMATION */
+@keyframes popIn {
+    from {
+        transform: scale(0.85);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* =========================
+   PINTEREST-STYLE MASONRY GRID
+========================= */
+
+/* =========================
+   📖 GALLERY BASE
+========================= */
+
+#gallery {
+    padding: 60px 12px;
+    /* 👈 THIS gives side breathing space */
+}
+
+#gallery h2 {
+    text-align: center;
+    color: #5a3e2b;
+    margin-bottom: 40px;
+}
+
+/* =========================
+   📁 ALBUM WRAPPER
+========================= */
+
+.album {
+    margin-bottom: 70px;
+}
+
+/* title stays aligned but centered visually */
+.album h3 {
+    max-width: 1000px;
+    margin: 0 auto 12px;
+    padding: 0 10px;
+
+    text-align: left;
+    font-size: 18px;
+    color: #5a3e2b;
+}
+
+/* =========================
+   🟫 FULL WIDTH SQUARE CONTAINER
+========================= */
+
+.album-box {
+    width: 100%;
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: grid;
+    gap: 6px;
+
+    padding: 6px;
+
+    border-radius: 16px;
+    overflow: hidden;
+
+    background: #f5f1e8;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+
+    /* 🔥 KEY FIX: prevents weird stretching */
+    grid-auto-flow: dense;
+}
+
+.album-box {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 120px;
+    /* 🔥 controls height consistency */
+}
+
+/* =========================
+   🖼️ IMAGE STYLE
+========================= */
+
+.album-box img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    /* 🔥 KEY FIX: prevents ultra-flat images */
+    aspect-ratio: 1 / 1;
+
+    display: block;
+
+    transition: 0.3s ease;
+    border-radius: 6px;
+}
+
+.album-box img:hover {
+    transform: scale(1.05);
+}
+
+/* =========================
+   📸 SELFIES
+========================= */
+
+.selfies img:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.selfies img:nth-child(2),
+.selfies img:nth-child(3),
+.selfies img:nth-child(4),
+.selfies img:nth-child(5),
+.selfies img:nth-child(6) {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+/* =========================
+   🌊 SEA
+========================= */
+
+.sea img:nth-child(1) {
+    grid-column: span 3;
+    grid-row: span 2;
+}
+
+.sea img:nth-child(2),
+.sea img:nth-child(3),
+.sea img:nth-child(4),
+.sea img:nth-child(5),
+.sea img:nth-child(6) {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+/* =========================
+   👨‍👩‍👧 FAMILY
+========================= */
+
+.family img:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.family img:nth-child(2),
+.family img:nth-child(3),
+.family img:nth-child(4),
+.family img:nth-child(5),
+.family img:nth-child(6) {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+/* =========================
+   🍜 FOOD
+========================= */
+
+.food img:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.food img:nth-child(2),
+.food img:nth-child(3),
+.food img:nth-child(4),
+.food img:nth-child(5),
+.food img:nth-child(6) {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+/* =========================
+   📱 RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+    #gallery {
+        padding: 50px 10px;
+    }
+
+    .album-box {
+        max-width: 90vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .album-box {
+        max-width: 95vw;
+    }
+}
