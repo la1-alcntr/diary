@@ -1023,3 +1023,48 @@ button:hover {
         max-width: 95vw;
     }
 }
+
+/* =========================
+   IMAGE LIGHTBOX (FULL VIEW)
+========================= */
+
+.img-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 5000;
+}
+
+#modalImg {
+    max-width: 85%;
+    max-height: 85%;
+
+    border-radius: 12px;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    object-fit: contain;
+}
+
+/* CLOSE BUTTON */
+#closeImg {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+
+    font-size: 40px;
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+#closeImg:hover {
+    transform: scale(1.2);
+}

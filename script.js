@@ -179,3 +179,33 @@ const albumData = {
         "images/travel5.jpg"
     ]
 };
+
+/* =========================
+   GALLERY IMAGE MODAL
+========================= */
+
+const images = document.querySelectorAll(".album-box img");
+
+const imgModal = document.getElementById("imgModal");
+const modalImg = document.getElementById("modalImg");
+const closeImg = document.getElementById("closeImg");
+
+// open image
+images.forEach(img => {
+    img.addEventListener("click", () => {
+        imgModal.style.display = "flex";
+        modalImg.src = img.src;
+    });
+});
+
+// close button
+closeImg.onclick = () => {
+    imgModal.style.display = "none";
+};
+
+// click outside image closes
+window.addEventListener("click", (e) => {
+    if (e.target === imgModal) {
+        imgModal.style.display = "none";
+    }
+});
