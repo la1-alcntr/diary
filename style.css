@@ -419,6 +419,17 @@ button:hover {
 
     color: #5c4432;
     text-align: center;
+
+    padding: 15px;
+    background: #f3e9dc;
+    border-radius: 15px;
+    transition: 0.3s ease;
+}
+
+.about-text:hover {
+    transform: translateY(-8px);
+    background: #8b5e3c;
+    color: white;
 }
 
 .map-link {
