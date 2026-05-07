@@ -50,8 +50,8 @@ html {
 
 /* profile image */
 .profile-pic {
-    width: 170px;
-    height: 170px;
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
     object-fit: contain;
     border: 3px solid #a67c52;
@@ -59,13 +59,13 @@ html {
 
 /* text */
 h1 {
-    font-size: 26px;
+    font-size: 30px;
     color: #5c4432;
     margin-top: 15px;
 }
 
 h1.title{
-    font-size: 48px;
+    font-size: 50px;
     color: #5a3e2b;
     font-family: "Georgia", serif;
     text-align: center;
@@ -74,19 +74,22 @@ h1.title{
 }
 
 h1 span {
-    font-size: 32px;
+    font-size: 35px;
     color: #8b5e3c;
 }
 
 /* button */
 button {
+    width: 160px;
+    height: 60px;
     margin-top: 20px;
     padding: 12px 28px;
     border: 1px solid #8b5e3c;
-    border-radius: 25px;
+    border-radius: 40px;
     background: transparent;
     color: #5c4432;
     cursor: pointer;
+    font-size: medium;
     transition: 0.3s;
 }
 
@@ -404,16 +407,15 @@ button:hover {
 .about-info {
     margin: 30px 0;
     color: #5c4432;
+    font-size: 20px;
 }
 
 .about-text {
     max-width: 650px;
-    /* controls width */
     margin: 25px auto 40px;
 
-    font-size: 17px;
-    /* slightly bigger */
-    line-height: 1.9;
+    font-size: 20px;
+    line-height: 2;
 
     color: #5c4432;
     text-align: center;
